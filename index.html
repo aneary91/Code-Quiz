@@ -1,12 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Code Quiz</title>
-</head>
-<body>  
-    <div class="highscores"> <a href="scores.html">highscores</a></div>
-</body>
+    <style>
+      .codeQuizStart {
+        width: 600px;
+        text-align: center;
+        position: relative;
+        left: 50%;
+        margin-left: -250px;
+      }
+      
+      .highscores {
+        float: left;
+        padding: 12px;
+      }
+      .timer {
+        float: right;
+      }
+
+      .highscores, .timer {
+        margin-bottom: 50px;
+        font-size: x-large;
+      }
+
+      button {
+        background-color: pink;
+        color: teal;
+        padding: px;
+        margin: 20px;   
+        font-size: 22px;  
+        }
+
+      .questionsContainer {
+      color: teal;
+      font-size: 30px;
+      }
+
+      .container {
+      color: teal;
+      font-size: 22px;
+      margin: 12px;
+      padding: 10px;
+      }
+
+      #choices1 {
+
+      }
+    </style>
+  </head>
+  <body>
+    <!-- added highscores link -->
+    <div class="highscores"><a href="scores.html">Check your Highscores!</a></div>
+    <div class="timer">Time: <span id="countdown">0</span></div>
+
+    <div class="container">
+      <!-- created an intro page for the quiz -->
+      <div class="codeQuizStart" id="intro">
+        <h1>Coding Quiz Challenge</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+        <button id="startBtn">Start Quiz</button>
+        </style>
+      </div>
+      <!-- question container -->
+      <div class="questionsContainer hidden">
+        <h2 id="quizQuestion"></h2>
+        <div class="questionsContainer hidden">
+          <h2 id="quizQuestion1">Quiz Question #1</h2>
+          <p> How do you write an If Statement in JavaScript?</p>
+          <button>if i=5 then,</button>
+          <button>if i = 5</button>
+          <button>if i == 5 then,</button>
+          <button>if (i=5)</button>
+        <div class="choices" id="choices1"></div>
+        <p></p>
+      </div>
+    </div>
+  
+    <div class="questionsContainer hidden">
+      <h2 id="quizQuestion2">Quiz Question #2</h2>
+      <p> How do you create a function in JavaScipt?</p>
+      <button>function myFunction()</button>
+      <button>function=myFunction()</button>
+      <button> fucntion:myFunction()</button>
+      <div class="choices" id="choices2"></div>
+    </div>
+    <div class="questionsContainer hidden">
+      <h2 id="quizQuestion3">Quiz Question #3</h2>
+      <p> Inside which HTML element do we put the JavaScript?</p>
+      <button>js Tag</button>
+      <button> javaScriptTag </button>
+      <button>scriptTag </button>
+      <button> scripting tag</button>
+      <div class="choices" id="choices3"></div>
+    </div>
+    <div class="questionsContainer hidden">
+      <h2 id="quizQuestion4">Quiz Question # 4</h2>
+      <p>The external JavaScript file must contain the script tag?</p>
+      <button>True</button>
+      <button>False</button>
+      <div class="choices" id="choices4"></div>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
