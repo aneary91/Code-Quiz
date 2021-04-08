@@ -20,17 +20,21 @@ var questionIndex = 0; 1; 2; 3;
 var jsQuestions = [
     {
         qNum1: 
-        quote: "How do you write an If Statement in JavaScript?"
+        // quote: ["How do you write an If Statement in JavaScript?"]
         choices: ["if i=5 then", "if i = 5", "if i == 5 then", "if (i=5)"]
-        answer: "if (i-5) {}"
-
+        answer: ["if (i-5) {}"]
+    }
+    {
         qNum2:
         quote: "How do you create a function in JavaScipt?"
         choices: ["function myFunction()", "function=myFunction()", "fucntion:myFunction()" ]
         answer: "function myFunction() {}"
-    }
+}
 
 ]
+
+console.log(choices.qNum1);
+
 
 function setTimer(){
 
