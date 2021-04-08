@@ -1,0 +1,46 @@
+
+      .codeQuizStart {
+        width: 600px;
+        text-align: center;
+        position: relative;
+        left: 50%;
+        margin-left: -250px;
+      }
+      
+      .highscores {
+        float: left;
+        padding: 12px;
+      }
+      .timer {
+        float: right;
+      }
+
+      .highscores, .timer {
+        margin-bottom: 50px;
+        font-size: x-large;
+      }
+
+      button {
+        background-color: pink;
+        color: teal;
+        padding: px;
+        margin: 20px;   
+        font-size: 22px;  
+        }
+
+      .questionsContainer {
+      color: teal;
+      font-size: 30px;
+      }
+
+      .container {
+      color: teal;
+      font-size: 22px;
+      margin: 12px;
+      padding: 10px;
+      }
+
+      #choices1 {
+
+      }
+    
