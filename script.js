@@ -19,17 +19,37 @@ var questionIndex = 0; 1; 2; 3;
 // variable of objects and 
 var jsQuestions = [
     {
-        qNum1: 
-        // quote: ["How do you write an If Statement in JavaScript?"]
-        choices: ["if i=5 then", "if i = 5", "if i == 5 then", "if (i=5)"]
-        answer: ["if (i-5) {}"]
-    }
-    {
-        qNum2:
-        quote: "How do you create a function in JavaScipt?"
-        choices: ["function myFunction()", "function=myFunction()", "fucntion:myFunction()" ]
-        answer: "function myFunction() {}"
-}
+        
+        
+   {
+        question: "How do you write an If Statement in JavaScript?"
+        optionOne: "if i=5 then",
+        optionTwo: "if i = 5",
+        optionThree: "if i == 5 then",
+        optionFour: "if (i=5) {}";
+        answer: "if (i=5) {}"
+ }
+ {
+            question: "How do you create a function in JavaScipt?",
+            optionOne: "function myFunction()",
+            optionTwo: "function=myFunction()",
+            optionThree: "fucntion:myFunction()",
+            answer: ["function myFunction() {}"]
+ }
+ {
+            question: "Inside which HTML element do we put the JavaScript?",
+            optionOne: "js Tag",
+            optionTwo: "javaScriptTag",
+            optionThree: "scriptTag",
+            optionFour: "scripting tag"
+         }
+
+        {
+            question: "The external JavaScript file must contain the script tag?"
+            optionOne: true,
+            optionTwo: false,
+
+          }
 
 ]
 
