@@ -11,10 +11,10 @@ var secondsLeft = 60;
 var timerEl = document.querySelector("#timer");
 
 var question = document.querySelector("#questions");
-var questionOneEl = document.querySelector("#question1");
-var questionTwoEl = document.querySelector("#question2");
-var questionThreeEl = document.querySelector("#question3");
-var questionFourEl = document.querySelector("#question4");
+var question1OneEl = document.querySelector("#question1");
+var question2TwoEl = document.querySelector("#question2");
+var question3ThreeEl = document.querySelector("#question3");
+var question4FourEl = document.querySelector("#question4");
 
 
 var gameScore = document.querySelector("#game-score")
@@ -24,10 +24,10 @@ var totalScoreEl = document.querySelector("#total-score");
 totalScoreEl.style.display = 'none';
 var submitEl = document.querySelector("#submit");
 
-questionOneEl.style.display = 'none';
-questionTwoEl.style.display = 'none';
-questionThreeEl.style.display = 'none';
-questionFourEl.style.display = 'none';
+question1OneEl.style.display = 'none';
+question2TwoEl.style.display = 'none';
+question3ThreeEl.style.display = 'none';
+question4FourEl.style.display = 'none';
 
 // var questionIndex = 0;
 // 1;
@@ -35,39 +35,39 @@ questionFourEl.style.display = 'none';
 // 3;
 
 
-// variable of objects and
-var question1= {
+// this is the list of questions and answers 
+var questionOneEl= {
     question: "How do you write an If Statement in JavaScript?",
-    optionOne: "if i=5 then",
-    optionTwo: "if i = 5",
-    optionThree: "if i == 5 then",
-    optionFour: "if (i=5) {}",
+    option1El: "if i=5 then",
+    option2El: "if i = 5",
+    option3El: "if i == 5 then",
+    option4El: "if (i=5) {}",
     answer: "if (i=5) {}",
 },
-var question2 = {
+var  questionTwoEl = {
     question: "How do you create a function in JavaScipt?",
-    optionOne: "function myFunction()",
-    optionTwo: "function=myFunction()",
-    optionThree: "fucntion:myFunction()",
+    option1El: "function myFunction()",
+    option2El: "function=myFunction()",
+    option3El: "fucntion:myFunction()",
     answer: "function myFunction() {}",
 },
-var question3 = {
+var questionThreeEl = {
     question: "Inside which HTML element do we put the JavaScript?",
-    optionOne: "js Tag",
-    optionTwo: "javaScriptTag",
-    optionThree: "<script> Tag",
-    optionFour: "scripting tag",
+    option1El: "js Tag",
+    option2El: "javaScriptTag",
+    option3El: "<script> Tag",
+    option4El: "scripting tag",
     answer: "<script> Tag",
 },
 
-var queston4 = {
+var questionFourEl = {
     question: "The external JavaScript file must contain the script tag?",
-    optionOne: true,
-    optionTwo: false,
+    option1El: true,
+    option2El: false,
     answer: true,
 };
 
-var questionArray = [question1, question2, question3, question4];
+var questionArray = [questionOneEl, questionTwoEl, questionThreeEl, questionFourEl];
 var myIndex = 0
 
 // a function to start the quiz
@@ -103,27 +103,69 @@ function setTimer() {
 
 function showQuestions() {
     question.style.display = 'block';
-    question1.style.display = 'table-row';
-    question2.style.display = 'table-row';
-    question3.style.display = 'table-row';
-    question4.style.display = 'table-row';
+    questionOneEl.style.display = 'table-row';
+    questionTwoEl.style.display = 'table-row';
+    questionThreeEl.style.display = 'table-row';
+    questionFourEl.style.display = 'table-row';
 
         if (myIndex < questions.length){
             question.textContent = questionArray[myIndex].question;
-            question1.textContent = questionArray[myIndex].question;
-            question2.textContent = questionArray[myIndex].question;
-            question3.textcontent = questionArray[myIndex].question;
-            question4.textcontent = questionArray[myIndex].question;
+            question1El.textContent = questionArray[myIndex].question1;
+            question2El.textContent = questionArray[myIndex].question2;
+            question3El.textcontent = questionArray[myIndex].question3;
+            question4El.textcontent = questionArray[myIndex].question4;
             answer = questions[myIndex].answer;
             
             if (secondsLeft === 0) {
-                question1.onclick = function () {
-                    if(questionArray[myIndex].question1)
+                question1El.onclick = function () {
+                    if(questionArray[myIndex].questionOneEl == answer){
+                        gameScore++;
+                        myIndex++;
+                        showQuestions()
+                    } else {
+                        secondsLeft = secondsLeft - 10
+                    }
+                }
+                question2El.onclick = function () {
+                    if(questionArray[myIndex].questionTwoEl == answer){
+                        gameScore++;
+                        myIndex++;
+                        showQuestions()
+                    } else {
+                        secondsLeft = secondsLeft - 10
+                    }
+                }
+                question3El.onclick = function () {
+                    if(questionArray[myIndex].questionThreeEl == answer){
+                        gameScore++;
+                        myIndex++;
+                        showQuestions()
+                    } else {
+                        secondsLeft = secondsLeft - 10
+                    }
+                }
+                question4El.onclick = function () {
+                    if(questionArray[myIndex].questionFourEl == answer){
+                        gameScore++;
+                        myIndex++;
+                        showQuestions()
+                    } else {
+                        secondsLeft = secondsLeft - 10
+                    }
                 }
             }
-
+        } else {
+            console.log("Congrats on Completing this Quiz!")
+            currentTime = 0
+            finalScore.append(score)
+            endGame()
         }
-}
+    }
+    function endGame() {
+        questionArray.style.display = 'none';
+
+        
+    }
 
 
 
