@@ -11,10 +11,10 @@ var secondsLeft = 60;
 var timerEl = document.querySelector("#timer");
 
 var question = document.querySelector("#questions");
-var questionOne = document.querySelector("#question1");
-var questionTwo = document.querySelector("#question2");
-var questionThree = document.querySelector("#question3");
-var questionFour = document.querySelector("#question4");
+var questionOneEl = document.querySelector("#question1");
+var questionTwoEl = document.querySelector("#question2");
+var questionThreeEl = document.querySelector("#question3");
+var questionFourEl = document.querySelector("#question4");
 
 
 var gameScore = document.querySelector("#game-score")
@@ -22,12 +22,12 @@ gameSccore.style.display = 'none';
 
 var totalScoreEl = document.querySelector("#total-score");
 totalScoreEl.style.display = 'none';
-// var submitEl = document.querySelector("#submit");
+var submitEl = document.querySelector("#submit");
 
-questionOne.style.display = 'none';
-questionTwo.style.display = 'none';
-questionThree.style.display = 'none';
-questionFour.style.display = 'none';
+questionOneEl.style.display = 'none';
+questionTwoEl.style.display = 'none';
+questionThreeEl.style.display = 'none';
+questionFourEl.style.display = 'none';
 
 // var questionIndex = 0;
 // 1;
@@ -68,41 +68,16 @@ var queston4 = {
 };
 
 var questionArray = [question1, question2, question3, question4];
-index = 0
+var myIndex = 0
 
 // a function to start the quiz
 function startQuiz() {
-  startBtn.style.display = 'none'
-  prompt.style.display = 'none'
-  count();
-  render();
+    startBtn.style.display = "none";
+        prompt.style.display = 'none'
+    count();
+    showQuestions();
 }
-
-
-// 1. Create a loop that loops over your array
-// 2. Try to console log the items in your array one at a time
-// 3. Then try to console log the question
-// 4. Then see if you can display that question
-
-function showQuestions() {
-    var myQuestionHTML = "";
-    
-    for (i = 0; i < jsQuestions.length; i++) {
-        myQuestionHTML +=
-        '<div class="questionsContainer hidden"><h2 id="quizQuestion' +
-        i +
-        '">Quiz Question #' +
-        (i + 1) +
-        "</h2><p>" +
-        jsQuestions[i].question +
-        "</p> <button>" +
-        jsQuestions[i].optionOne +
-        "</button>";
-    }
-    document.querySelector("allQuestions").innerHTML = myQuestionHTML;
-}
-showQuestions();
-
+// a function to set the timer for the quiz
 function setTimer() {
     if (interval ===0){
     timerInterval = setInterval(function () {
@@ -121,8 +96,38 @@ function setTimer() {
 }
 }
 
-setTimer();
+// 1. Create a loop that loops over your array
+// 2. Try to console log the items in your array one at a time
+// 3. Then try to console log the question
+// 4. Then see if you can display that question
 
-// startQuiz();
+function showQuestions() {
+    question.style.display = 'block';
+    question1.style.display = 'table-row';
+    question2.style.display = 'table-row';
+    question3.style.display = 'table-row';
+    question4.style.display = 'table-row';
+
+        if (myIndex < questions.length){
+            question.textContent = questionArray[myIndex].question;
+            question1.textContent = questionArray[myIndex].question;
+            question2.textContent = questionArray[myIndex].question;
+            question3.textcontent = questionArray[myIndex].question;
+            question4.textcontent = questionArray[myIndex].question;
+            answer = questions[myIndex].answer;
+            
+            if (secondsLeft === 0) {
+                question1.onclick = function () {
+                    if(questionArray[myIndex].question1)
+                }
+            }
+
+        }
+}
+
+
+
+
+
 
 
