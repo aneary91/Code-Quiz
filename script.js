@@ -11,10 +11,10 @@ var secondsLeft = 60;
 var timerEl = document.querySelector("#timer");
 
 var question = document.querySelector("#questions");
-var questionElOneEl = document.querySelector("#question1");
-var questionElTwoEl = document.querySelector("#question2");
-var questionElThreeEl = document.querySelector("#question3");
-var questionElFourEl = document.querySelector("#question4");
+var questionOne = document.querySelector("#question1");
+var questionTwo = document.querySelector("#question2");
+var questionThree = document.querySelector("#question3");
+var questionFour = document.querySelector("#question4");
 
 
 var gameScore = document.querySelector("#game-score")
@@ -24,10 +24,10 @@ var totalScoreEl = document.querySelector("#total-score");
 totalScoreEl.style.display = 'none';
 // var submitEl = document.querySelector("#submit");
 
-questionElOneEl.style.display = 'none';
-questionElTwoEl.style.display = 'none';
-questionElThreeEl.style.display = 'none';
-questionElFourEl.style.display = 'none';
+questionOne.style.display = 'none';
+questionTwo.style.display = 'none';
+questionThree.style.display = 'none';
+questionFour.style.display = 'none';
 
 // var questionIndex = 0;
 // 1;
@@ -84,34 +84,43 @@ function startQuiz() {
 // 3. Then try to console log the question
 // 4. Then see if you can display that question
 
-// function showQuestions() {
-//     var myQuestionHTML = "";
+function showQuestions() {
+    var myQuestionHTML = "";
     
-//     for (i = 0; i < jsQuestions.length; i++) {
-//         myQuestionHTML +=
-//         '<div class="questionsContainer hidden"><h2 id="quizQuestion' +
-//         i +
-//         '">Quiz Question #' +
-//         (i + 1) +
-//         "</h2><p>" +
-//         jsQuestions[i].question +
-//         "</p> <button>" +
-//         jsQuestions[i].optionOne +
-//         "</button>";
-//     }
-//     document.querySelector("allQuestions").innerHTML = myQuestionHTML;
-// }
-// showQuestions();
+    for (i = 0; i < jsQuestions.length; i++) {
+        myQuestionHTML +=
+        '<div class="questionsContainer hidden"><h2 id="quizQuestion' +
+        i +
+        '">Quiz Question #' +
+        (i + 1) +
+        "</h2><p>" +
+        jsQuestions[i].question +
+        "</p> <button>" +
+        jsQuestions[i].optionOne +
+        "</button>";
+    }
+    document.querySelector("allQuestions").innerHTML = myQuestionHTML;
+}
+showQuestions();
 
 function setTimer() {
+    if (interval ===0){
     timerInterval = setInterval(function () {
         secondsLeft--;
-        timerEl.textContent = secondsLeft + " seconds left!";
+        timerEl.textContent = secondsLeft + "seconds left!";
         if (secondsLeft === 10) {
-            alert("hurry up!");
-    }
-  }, 1000);
+            alert("hurry up!");  
+        }
+        if (secondsLeft === 0) {
+            clearInterval(timer);
+            gameScore.append(gameScore)
+            finish();
+            timerEl.textContent = "Game Over!!"
+        }
+    }, 1000);
 }
+}
+
 setTimer();
 
 // startQuiz();
