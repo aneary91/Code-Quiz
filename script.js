@@ -18,10 +18,9 @@ var question4FourEl = document.querySelector("#question4");
 
 
 var gameScore = document.querySelector("#game-score")
-gameSccore.style.display = 'none';
 
 var totalScoreEl = document.querySelector("#total-score");
-totalScoreEl.style.display = 'none';
+
 var submitEl = document.querySelector("#submit");
 
 // this is the list of questions and answers 
@@ -60,8 +59,9 @@ var myIndex = 0
 
 // a function to start the quiz
 function startQuiz() {
-    startBtn.style.display = "none"
     interval = setInterval(setTimer, 1000)
+    var startCont = document.getElementById('startContainer');
+    startCont.setAttribute('class', 'hide')
 }
 // a function to set the timer for the quiz
 function setTimer() {
