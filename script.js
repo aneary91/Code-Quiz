@@ -1,4 +1,4 @@
-var startBtn = document.querySelector("#start");
+var startBtn = document.getElementById("startBtn");
 var cue = document.querySelector("#cue");
 startBtn.addEventListener("click", startQuiz);
 
@@ -8,7 +8,7 @@ var penalty = 10;
 
 var interval ;
 var secondsLeft = 60;
-var timerEl = document.querySelector("#timer");
+var timerEl = document.getElementById("countdown");
 
 var question = document.querySelector("#questions");
 var question1OneEl = document.querySelector("#question1");
@@ -24,19 +24,9 @@ var totalScoreEl = document.querySelector("#total-score");
 totalScoreEl.style.display = 'none';
 var submitEl = document.querySelector("#submit");
 
-// question1OneEl.style.display = 'none';
-// question2TwoEl.style.display = 'none';
-// question3ThreeEl.style.display = 'none';
-// question4FourEl.style.display = 'none';
-
-// var questionIndex = 0;
-// 1;
-// 2;
-// 3;
-
-
 // this is the list of questions and answers 
-var question1El= {
+var questionArray = [
+{
     question: "How do you write an If Statement in JavaScript?",
     option1El: "if i=5 then",
     option2El: "if i = 5",
@@ -44,14 +34,14 @@ var question1El= {
     option4El: "if (i=5) {}",
     answer: "if (i=5) {}",
 },
-var question2El = {
+{
     question: "How do you create a function in JavaScipt?",
     option1El: "function myFunction()",
     option2El: "function=myFunction()",
     option3El: "fucntion:myFunction()",
     answer: "function myFunction() {}",
 },
-var question3El = {
+{
     question: "Inside which HTML element do we put the JavaScript?",
     option1El: "js Tag",
     option2El: "javaScriptTag",
@@ -59,23 +49,19 @@ var question3El = {
     option4El: "scripting tag",
     answer: "<script> Tag",
 },
-
-var question4El = {
+{
     question: "The external JavaScript file must contain the script tag?",
     option1El: 'true',
     option2El: 'false',
     answer: 'false',
-};
-
-var questionArray = [question1El, question2El, question3El, question4El];
+}
+]
 var myIndex = 0
 
 // a function to start the quiz
 function startQuiz() {
-    startBtn.style.display = "none";
-        prompt.style.display = 'none'
-    count();
-    showQuestions();
+    startBtn.style.display = "none"
+    interval = setInterval(setTimer, 1000)
 }
 // a function to set the timer for the quiz
 function setTimer() {
@@ -159,7 +145,6 @@ function showQuestions() {
         let lastName = document.getElementById('inputLastName').Value;
         console.log(lastName)
         let highScore = JSON.parse(localStorage.getItem('highScores'))
-
     }
 
 
