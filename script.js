@@ -6,7 +6,7 @@ startBtn.addEventListener("click", startQuiz);
 var score = 0;
 var penalty = 10;
 
-var interval = 0;
+var interval ;
 var secondsLeft = 60;
 var timerEl = document.querySelector("#timer");
 
@@ -24,10 +24,10 @@ var totalScoreEl = document.querySelector("#total-score");
 totalScoreEl.style.display = 'none';
 var submitEl = document.querySelector("#submit");
 
-question1OneEl.style.display = 'none';
-question2TwoEl.style.display = 'none';
-question3ThreeEl.style.display = 'none';
-question4FourEl.style.display = 'none';
+// question1OneEl.style.display = 'none';
+// question2TwoEl.style.display = 'none';
+// question3ThreeEl.style.display = 'none';
+// question4FourEl.style.display = 'none';
 
 // var questionIndex = 0;
 // 1;
@@ -36,7 +36,7 @@ question4FourEl.style.display = 'none';
 
 
 // this is the list of questions and answers 
-var questionOneEl= {
+var question1El= {
     question: "How do you write an If Statement in JavaScript?",
     option1El: "if i=5 then",
     option2El: "if i = 5",
@@ -44,14 +44,14 @@ var questionOneEl= {
     option4El: "if (i=5) {}",
     answer: "if (i=5) {}",
 },
-var  questionTwoEl = {
+var question2El = {
     question: "How do you create a function in JavaScipt?",
     option1El: "function myFunction()",
     option2El: "function=myFunction()",
     option3El: "fucntion:myFunction()",
     answer: "function myFunction() {}",
 },
-var questionThreeEl = {
+var question3El = {
     question: "Inside which HTML element do we put the JavaScript?",
     option1El: "js Tag",
     option2El: "javaScriptTag",
@@ -60,14 +60,14 @@ var questionThreeEl = {
     answer: "<script> Tag",
 },
 
-var questionFourEl = {
+var question4El = {
     question: "The external JavaScript file must contain the script tag?",
-    option1El: true,
-    option2El: false,
-    answer: true,
+    option1El: 'true',
+    option2El: 'false',
+    answer: 'false',
 };
 
-var questionArray = [questionOneEl, questionTwoEl, questionThreeEl, questionFourEl];
+var questionArray = [question1El, question2El, question3El, question4El];
 var myIndex = 0
 
 // a function to start the quiz
@@ -79,27 +79,13 @@ function startQuiz() {
 }
 // a function to set the timer for the quiz
 function setTimer() {
-    if (interval ===0){
-    timerInterval = setInterval(function () {
-        secondsLeft--;
-        timerEl.textContent = secondsLeft + "seconds left!";
-        if (secondsLeft === 10) {
-            alert("hurry up!");  
-        }
-        if (secondsLeft === 0) {
-            clearInterval(timer);
-            gameScore.append(gameScore)
-            finish();
-            timerEl.textContent = "Game Over!!"
-        }
-    }, 1000);
-}
-}
+    secondsLeft--;
+    timerEl.textContent = secondsLeft;
 
-// 1. Create a loop that loops over your array
-// 2. Try to console log the items in your array one at a time
-// 3. Then try to console log the question
-// 4. Then see if you can display that question
+    if (secondsLeft <= 0 ){
+        endGame()
+    }
+}
 
 function showQuestions() {
     question.style.display = 'block';
@@ -162,9 +148,18 @@ function showQuestions() {
         }
     }
     function endGame() {
-        questionArray.style.display = 'none';
+        question.style.display = 'none';
+        option1El.style.display = 'none';
+        option2El.style.display = 'none';
+        option3El.style.display = 'none';
+        option4El.style.display = 'none';
+    }
 
-        
+    function saveScore() {
+        let lastName = document.getElementById('inputLastName').Value;
+        console.log(lastName)
+        let highScore = JSON.parse(localStorage.getItem('highScores'))
+
     }
 
 
