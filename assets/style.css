@@ -23,7 +23,7 @@
       button {
         background-color: pink;
         color: teal;
-        padding: px;
+        padding: 35px;
         margin: 20px;   
         font-size: 22px;  
         }
@@ -33,7 +33,7 @@
       font-size: 30px;
       }
 
-      .questionContainer {
+      .questionsContainer {
       color: teal;
       font-size: 22px;
       margin: 12px;

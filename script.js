@@ -15,7 +15,7 @@ var question1OneEl = document.querySelector("#question1");
 var question2TwoEl = document.querySelector("#question2");
 var question3ThreeEl = document.querySelector("#question3");
 var question4FourEl = document.querySelector("#question4");
-
+var qCont = document.getElementById('questionsContainer');
 
 var gameScore = document.querySelector("#game-score")
 
@@ -27,31 +27,22 @@ var submitEl = document.querySelector("#submit");
 var questionArray = [
 {
     question: "How do you write an If Statement in JavaScript?",
-    option1El: "if i=5 then",
-    option2El: "if i = 5",
-    option3El: "if i == 5 then",
-    option4El: "if (i=5) {}",
+    choices: ["if i=5 then", "if i = 5", "if i == 5 then", "if (i=5) {}"],
     answer: "if (i=5) {}",
 },
 {
     question: "How do you create a function in JavaScipt?",
-    option1El: "function myFunction()",
-    option2El: "function=myFunction()",
-    option3El: "fucntion:myFunction()",
-    answer: "function myFunction() {}",
+    choices: ["function myFunction()", "function=myFunction()", "function myFunction() {}", "function:myFunction()"],
+    answer: "function myFunction() {}"
 },
 {
     question: "Inside which HTML element do we put the JavaScript?",
-    option1El: "js Tag",
-    option2El: "javaScriptTag",
-    option3El: "<script> Tag",
-    option4El: "scripting tag",
+    choices: ["js Tag", "javaScriptTag", "<script> Tag", "scripting tag"],
     answer: "<script> Tag",
 },
 {
     question: "The external JavaScript file must contain the script tag?",
-    option1El: 'true',
-    option2El: 'false',
+    choices: ['true','false'],
     answer: 'false',
 }
 ]
@@ -62,6 +53,9 @@ function startQuiz() {
     interval = setInterval(setTimer, 1000)
     var startCont = document.getElementById('startContainer');
     startCont.setAttribute('class', 'hide')
+
+    qCont.removeAttribute('class')
+    
 }
 // a function to set the timer for the quiz
 function setTimer() {
@@ -74,11 +68,7 @@ function setTimer() {
 }
 
 function showQuestions() {
-    question.style.display = 'block';
-    questionOneEl.style.display = 'table-row';
-    questionTwoEl.style.display = 'table-row';
-    questionThreeEl.style.display = 'table-row';
-    questionFourEl.style.display = 'table-row';
+
 
         if (myIndex < questions.length){
             question.textContent = questionArray[myIndex].question;
