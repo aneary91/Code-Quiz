@@ -87,7 +87,7 @@ function showQuestions() {
     optionBtn.setAttribute("class", "choiceBtn");
     optionBtn.setAttribute("value", choice);
 
-    optionBtn.textContent = index + 1 + ". " + choice;
+    optionBtn.textContent = index + 1 + choice;
     optionBtn.onClick = checkAnswer();
     //append the buttons to the HTML element
     optionsEl.appendChild(optionBtn);
@@ -95,14 +95,21 @@ function showQuestions() {
 }
 
 function checkAnswer() {
-    if (this.value !== questionsArray[myIndex].answer){
+    if (this.value !== questionArray[myIndex].answer){
         secondsLeft -=5
     }
     //stops the timer from showing negative intergers
     if (secondsLeft <0 ){
         secondsLeft = 0;
     }
-    myIndex ++
+    myIndex ++;
+
+    if (myIndex === questionArray.length) {
+        endGame();
+
+    } else {
+        showQuestions();
+    }
 }
 
 function endGame() {
